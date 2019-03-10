@@ -1,0 +1,6 @@
+install kaldi:
+使用git直接从社区里面clone
+未安装git的情况
+ubuntu:sudo apt-get install git
+到git社区中拷贝到本地,文件名:kaldi-master
+
