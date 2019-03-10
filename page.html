@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>3Dpageon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            height: 200px;
+            width: 400px;
+            overflow: hidden;
+        }
+        .page{
+            height: 200px;
+            width: 400px;
+            text-align: center;
+        }
+        #page1{
+            background-color: red;
+        }
+        #page2{
+            background-color: orange;
+            display: none;
+        }
+        #page3{
+            background-color: yellow;
+            display: none;
+        }
+        #page4{
+            background-color: green;
+            display: none;
+        }
+        #page5{
+            background-color: blue;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>3D翻页效果展示</p>
+    </div>
+    <div class="container">
+        <div class="page" id="page1">1</div>
+        <div class="page" id="page2">2</div>
+        <div class="page" id="page3">3</div>
+        <div class="page" id="page4">4</div>
+        <div class="page" id="page5">5</div>
+    </div>
+    <div class="btn-group" id="btngroup">
+        <button class="btn" id="pre-page">上一页</button>
+        <button class="btn" id="next-page">下一页</button>
+    </div>
+
+
+    <script>
+        var pagegroup = document.getElementsByClassName("page");
+        var prebtn = document.getElementById("pre-page");
+        var nextbtn = document.getElementById("next-page");
+        var i = 0;
+        nextbtn.addEventListener("click", function(){
+            if (i <= 3) {
+                pagegroup[i].style.display = "none";
+                pagegroup[i + 1].style.display = "block";
+                i++;
+            }else{
+                pagegroup[4].style.display = "none";
+                pagegroup[0].style.display = "block";
+                i = 0;
+            }
+        })
+        prebtn.addEventListener("click", function(){
+            if(i > 0){
+                pagegroup[i].style.display = "none";
+                pagegroup[i - 1].style.display = "block";
+                i --;
+            }else{
+                pagegroup[0].style.display = "none";
+                pagegroup[4].style.display = "block";
+                i = 4;
+            }
+        })
+    </script>
+</body>
+</html>
